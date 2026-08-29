@@ -39,16 +39,29 @@ built dashboard and widget bundles - see `server/src/app.ts`), `dashboard/`
   file shares one database and truncates between tests
   (`test/helpers.ts#resetDb`), so new test files must not run concurrently
   with existing ones.
-- `packages/widget` and `dashboard` both need `--no-experimental-webstorage`
-  passed to the worker process (see their `vitest.config.ts`) - Node 22+'s own
-  built-in `localStorage` global otherwise shadows jsdom's real one and every
-  `window.localStorage` call in a test silently no-ops.
+- `packages/widget` needs `--no-experimental-webstorage` passed to the worker
+  process (see its `vitest.config.ts`, which also sets `environment: "jsdom"`
+  project-wide) - Node 22+'s own built-in `localStorage` global otherwise
+  shadows jsdom's real one and every `window.localStorage` call in a test
+  silently no-ops. `dashboard` (`vite.config.ts`) defaults to
+  `environment: "node"` instead and opts individual files into jsdom with a
+  `// @vitest-environment jsdom` comment (see `dashboard/test/routing.test.tsx`)
+  - add the same `--no-experimental-webstorage` guard there too if a
+  jsdom-mode dashboard test ever touches `localStorage`.
 
 ## Release
 
 `ghcr.io/laaaaksh/pageflag` image names must be lowercase; `.github/workflows/release.yml`
 lowercases `github.repository` itself before tagging, since the GitHub owner
 (`Laaaaksh`) isn't. See `CONTRIBUTING.md` for the full tag-and-release procedure.
+
+No tag has ever been pushed, so the GHCR image and GitHub release the README
+and SECURITY.md describe don't exist yet - both docs say so explicitly until
+a first tag lands. `ci.yml` already triggers on `main` (this repo's real
+default branch), so pushing a tag is the only remaining step, but as of
+2026-08-30 every Actions run on this repo (CI included) fails immediately
+with a GitHub account billing/spending-limit error, not a code or workflow
+problem - that must clear before a tag push can actually publish anything.
 
 ## Maintaining this file
 

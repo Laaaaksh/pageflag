@@ -6,7 +6,7 @@ import type { Integration, Pin, PinStatus, Project } from "../types";
 type Tab = "pins" | "install" | "integrations" | "settings";
 
 export default function ProjectDetailPage() {
-  const { projectId } = useParams<{ projectId: string }>();
+  const { projectId, pinId } = useParams<{ projectId: string; pinId?: string }>();
   const navigate = useNavigate();
   const [project, setProject] = useState<Project | null>(null);
   const [tab, setTab] = useState<Tab>("pins");
@@ -36,7 +36,7 @@ export default function ProjectDetailPage() {
         ))}
       </nav>
 
-      {tab === "pins" && <PinsTab project={project} />}
+      {tab === "pins" && <PinsTab project={project} focusPinId={pinId} />}
       {tab === "install" && <InstallTab project={project} />}
       {tab === "integrations" && <IntegrationsTab project={project} />}
       {tab === "settings" && <SettingsTab project={project} onChange={setProject} />}
@@ -44,7 +44,7 @@ export default function ProjectDetailPage() {
   );
 }
 
-function PinsTab({ project }: { project: Project }) {
+function PinsTab({ project, focusPinId }: { project: Project; focusPinId?: string }) {
   const [pins, setPins] = useState<Pin[] | null>(null);
   const [status, setStatus] = useState<PinStatus | "">("");
   const [pageUrl, setPageUrl] = useState("");
@@ -118,13 +118,28 @@ function PinsTab({ project }: { project: Project }) {
       )}
       <ul className="pin-list">
         {pins?.map((pin) => (
-          <li key={pin.id} className="card pin-card">
+          <li
+            key={pin.id}
+            id={`pin-${pin.id}`}
+            className={pin.id === focusPinId ? "card pin-card pin-card-focused" : "card pin-card"}
+            ref={(el) => {
+              if (el && pin.id === focusPinId) el.scrollIntoView?.({ block: "center" });
+            }}
+          >
             {pin.screenshot_path && (
-              <img
-                className="pin-screenshot"
-                src={api.screenshotUrl(pin.id)}
-                alt={`Screenshot for pin: ${pin.comment}`}
-              />
+              <a
+                className="pin-screenshot-link"
+                href={api.screenshotUrl(pin.id)}
+                target="_blank"
+                rel="noreferrer"
+                title="Open full screenshot"
+              >
+                <img
+                  className="pin-screenshot"
+                  src={api.screenshotUrl(pin.id)}
+                  alt={`Screenshot for pin: ${pin.comment}`}
+                />
+              </a>
             )}
             <div className="pin-body">
               <p className="pin-comment">{pin.comment}</p>

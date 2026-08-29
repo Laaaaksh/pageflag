@@ -1,0 +1,22 @@
+{
+  "name": "@pageflag/widget",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node esbuild.config.js --watch",
+    "build": "node esbuild.config.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "esbuild": "^0.25.0",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.4"
+  }
+}

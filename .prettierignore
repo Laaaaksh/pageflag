@@ -1,0 +1,6 @@
+dist/
+node_modules/
+.test-screenshots/
+CHANGELOG.md
+# Adopted unmodified from the Contributor Covenant - not ours to reformat.
+CODE_OF_CONDUCT.md

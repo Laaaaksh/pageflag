@@ -1,0 +1,41 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: pageflag
+      POSTGRES_PASSWORD: pageflag
+      POSTGRES_DB: pageflag
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pageflag"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      args:
+        # Override for a real deploy: this becomes the absolute URL the install
+        # snippet points customers' <script> tags at.
+        VITE_API_BASE: ${VITE_API_BASE:-http://localhost:4000}
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "4000:4000"
+    environment:
+      DATABASE_URL: postgres://pageflag:pageflag@postgres:5432/pageflag
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env - see .env.example}
+      PORT: 4000
+      SCREENSHOT_DIR: /data/screenshots
+      DASHBOARD_ORIGIN: ${DASHBOARD_ORIGIN:-http://localhost:4000}
+    volumes:
+      - screenshots:/data/screenshots
+
+volumes:
+  postgres-data:
+  screenshots:

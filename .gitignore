@@ -1,0 +1,18 @@
+node_modules/
+dist/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+.claude/settings.local.json
+
+# server screenshot storage - see docker-compose.yml volume mount
+server/data/
+.test-screenshots/
+
+# build artifacts
+server/dist/
+dashboard/dist/
+packages/widget/dist/
+*.tsbuildinfo

@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a problem with Pageflag
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Steps to reproduce, and what you expected vs what actually happened.
+      placeholder: |
+        1. Install the widget snippet on a page
+        2. Click the feedback button, then click an element
+        3. See error
+    validations:
+      required: true
+  - type: input
+    id: pageflag-version
+    attributes:
+      label: Pageflag version or image tag
+      description: The git tag, `ghcr.io/.../pageflag` image tag, or commit you're running.
+      placeholder: "v0.2.0, or ghcr.io/owner/pageflag:v0.2.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Where does this happen?
+      options:
+        - Embed widget (the button/pin flow on the target site)
+        - Dashboard
+        - Server / API
+        - Self-hosting / Docker setup
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser + OS if this is a widget/dashboard issue; Node version and deploy method (Docker Compose, bare `npm`) if this is a server issue.
+      placeholder: "Chrome 130 on macOS 15, self-hosted via docker compose"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs or console output
+      description: Browser devtools console output, or `docker compose logs app`.
+    validations:
+      required: false

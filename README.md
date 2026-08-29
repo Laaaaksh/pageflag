@@ -51,9 +51,13 @@ Open http://localhost:4000, sign up, and create your first project. That's the
 whole self-hosted stack: Postgres, the API, the dashboard, and the widget
 bundle, all in two containers.
 
-Prefer a pinned image over building from source? Tagged releases publish to
-`ghcr.io/laaaaksh/pageflag` - point `docker-compose.yml`'s `app` service at
-`image: ghcr.io/laaaaksh/pageflag:vX.Y.Z` instead of `build: .`.
+Prefer a pinned image over building from source? Once a tagged release exists,
+it publishes to `ghcr.io/laaaaksh/pageflag` - point `docker-compose.yml`'s
+`app` service at `image: ghcr.io/laaaaksh/pageflag:vX.Y.Z` instead of
+`build: .`. No release has been tagged yet (see
+[releases](https://github.com/Laaaaksh/pageflag/releases)); until then,
+`docker compose up -d` above builds the image from source, which is the fully
+supported path.
 
 ## Usage
 
@@ -75,10 +79,14 @@ Prefer a pinned image over building from source? Tagged releases publish to
 ## Configuration
 
 Everything is set via environment variables - see [.env.example](.env.example)
-for the full list with descriptions. The two that matter on day one:
+for the full list with descriptions. The ones that matter on day one:
 
 - `JWT_SECRET` - required, signs session cookies. Generate one with `openssl rand -hex 32`.
 - `DATABASE_URL` - a Postgres connection string; the bundled `docker-compose.yml` sets this up for you.
+- `DASHBOARD_ORIGIN` - the dashboard's own origin. Defaults to `http://localhost:4000`, matching
+  the Docker Compose stack. If you deploy the dashboard somewhere other than localhost, set this to
+  its real origin - it's used both for CORS and for the links back to the dashboard in issues filed
+  through the GitHub/Linear integrations.
 
 Per-project settings (domain allow-list, review link, issue-tracker
 credentials) live in the dashboard itself, under each project's **Settings**

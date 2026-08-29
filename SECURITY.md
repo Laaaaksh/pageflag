@@ -3,7 +3,8 @@
 ## Supported versions
 
 Pageflag is a young project. Security fixes are made against the **latest
-release** and `main` only.
+release** and `main` only. No release has been tagged yet - until the first
+one ships, `main` is the only supported version.
 
 | Version        | Supported |
 | -------------- | --------- |

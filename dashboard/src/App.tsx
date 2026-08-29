@@ -78,6 +78,16 @@ export default function App() {
             </RequireAuth>
           }
         />
+        <Route
+          path="/projects/:projectId/pins/:pinId"
+          element={
+            <RequireAuth>
+              <Shell>
+                <ProjectDetailPage />
+              </Shell>
+            </RequireAuth>
+          }
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AuthProvider>

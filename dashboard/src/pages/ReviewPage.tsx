@@ -45,11 +45,19 @@ export default function ReviewPage() {
         {pins?.map((pin) => (
           <li key={pin.id} className="card pin-card">
             {pin.screenshot_path && token && (
-              <img
-                className="pin-screenshot"
-                src={api.reviewScreenshotUrl(token, pin.id)}
-                alt={`Screenshot for pin: ${pin.comment}`}
-              />
+              <a
+                className="pin-screenshot-link"
+                href={api.reviewScreenshotUrl(token, pin.id)}
+                target="_blank"
+                rel="noreferrer"
+                title="Open full screenshot"
+              >
+                <img
+                  className="pin-screenshot"
+                  src={api.reviewScreenshotUrl(token, pin.id)}
+                  alt={`Screenshot for pin: ${pin.comment}`}
+                />
+              </a>
             )}
             <div className="pin-body">
               <p className="pin-comment">{pin.comment}</p>

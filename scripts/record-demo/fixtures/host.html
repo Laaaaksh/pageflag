@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Acme — Ship what your users actually asked for</title>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #1f2937;
+        background: #ffffff;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 48px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .logo {
+        font-weight: 700;
+        font-size: 20px;
+        color: #6d28d9;
+      }
+      nav a {
+        margin-left: 28px;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .hero {
+        padding: 96px 48px 80px;
+        text-align: center;
+        background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+      }
+      .hero h1 {
+        font-size: 44px;
+        margin: 0 0 16px;
+        max-width: 720px;
+        margin-inline: auto;
+      }
+      .hero p {
+        font-size: 18px;
+        color: #4b5563;
+        max-width: 560px;
+        margin: 0 auto 32px;
+      }
+      #hero-cta {
+        background: #16a34a;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 14px 28px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #hero-cta:hover {
+        background: #15803d;
+      }
+      .pricing {
+        padding: 64px 48px;
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .plan {
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 28px;
+        width: 240px;
+      }
+      .plan h3 {
+        margin-top: 0;
+      }
+      .plan .price {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 12px 0;
+      }
+      footer {
+        padding: 32px 48px;
+        text-align: center;
+        color: #9ca3af;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Acme</div>
+      <nav>
+        <a href="#">Product</a>
+        <a href="#">Pricing</a>
+        <a href="#">Docs</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Ship what your users actually asked for</h1>
+      <p>Acme turns customer requests into a prioritized roadmap your whole team can see.</p>
+      <button id="hero-cta" type="button">Start free trial</button>
+    </section>
+
+    <section class="pricing">
+      <div class="plan">
+        <h3>Starter</h3>
+        <div class="price">$0</div>
+        <p>For small teams getting started.</p>
+      </div>
+      <div class="plan">
+        <h3>Pro</h3>
+        <div class="price">$49/mo</div>
+        <p>Unlimited requests and integrations.</p>
+      </div>
+      <div class="plan">
+        <h3>Enterprise</h3>
+        <div class="price">Talk to us</div>
+        <p>SSO, audit logs, and a dedicated CSM.</p>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 Acme, Inc. — this page is a fixture used only to record the Pageflag demo.
+    </footer>
+
+    <script>
+      // Mirrors pasting the real install snippet from the dashboard's Install tab:
+      // the widget script tag is inserted with the project's actual public key and
+      // API origin, passed in via the URL so this fixture stays reusable across runs.
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var key = params.get("key");
+        var api = params.get("api");
+        if (!key || !api) return;
+        var s = document.createElement("script");
+        s.src = api.replace(/\/$/, "") + "/widget.js";
+        s.dataset.project = key;
+        document.body.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

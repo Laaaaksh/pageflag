@@ -19,6 +19,9 @@ All notable changes to Pageflag are documented in this file. Format is based on
   feedback without a Pageflag account.
 - Docker Compose setup (Postgres + the app) and a GHCR-published Docker image
   on tagged releases.
+- A real, re-recordable README demo (`docs/assets/demo.gif`/`demo.mp4`) and a
+  `make demo` target (`scripts/record-demo/`) that captures the signup →
+  install → pin → triage → resolve flow against the actual running app.
 
 ### Fixed
 

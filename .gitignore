@@ -16,3 +16,6 @@ server/dist/
 dashboard/dist/
 packages/widget/dist/
 *.tsbuildinfo
+
+# raw recorder output (converted assets under docs/assets/ are committed instead)
+scripts/record-demo/output/

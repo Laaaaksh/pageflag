@@ -26,4 +26,8 @@ export default tseslint.config(
     files: ["server/src/**", "server/test/**"],
     languageOptions: { globals: globals.node },
   },
+  {
+    files: ["scripts/record-demo/**"],
+    languageOptions: { globals: globals.node },
+  },
 );

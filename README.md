@@ -16,7 +16,7 @@ infrastructure you control.
 [![Node](https://img.shields.io/badge/node-22+-339933?logo=node.js&logoColor=white)](package.json)
 [![Docker](https://img.shields.io/badge/self--host-Docker%20Compose-2496ED?logo=docker&logoColor=white)](#install)
 
-**[Install](#install) • [Usage](#usage) • [Configuration](#configuration) • [Changelog](CHANGELOG.md) • [Contributing](CONTRIBUTING.md) • [License](LICENSE)**
+**[Install](#install) • [Usage](#usage) • [Configuration](#configuration) • [Limits](#limits) • [Changelog](CHANGELOG.md) • [Contributing](CONTRIBUTING.md) • [License](LICENSE)**
 
 **[Code of conduct](CODE_OF_CONDUCT.md) • [Security](SECURITY.md)**
 
@@ -91,6 +91,29 @@ for the full list with descriptions. The ones that matter on day one:
 Per-project settings (domain allow-list, review link, issue-tracker
 credentials) live in the dashboard itself, under each project's **Settings**
 and **Integrations** tabs - there's nothing to hand-edit in a config file.
+
+## Limits
+
+- **No tagged release yet.** The GHCR image mentioned in [Install](#install)
+  doesn't exist until a version is tagged; building from source is the only
+  supported path today.
+- **Issue-tracker sync is create-only, GitHub and Linear only.** Filing an
+  issue from a pin works well, but there's no Jira/Trello/Asana/ClickUp/Monday
+  support, and status doesn't sync back from the tracker into Pageflag.
+- **Screenshots, not recordings.** A pin captures one viewport screenshot at
+  click time via `html2canvas` - no screen recording, no video.
+- **The Pins list is a flat, filterable list, not a kanban board.**
+- **Ships as a `<script>` tag only** - no browser extension, so it only works
+  on pages you can add markup to.
+- **Dashboard test coverage is thinner than the server's.** Auth, pin
+  submission, domain allow-listing, and the GitHub/Linear integrations are
+  covered in depth on the server; the dashboard has API-client tests and one
+  routing test, not full component coverage.
+- **Verified by an independent pre-launch audit, not yet run in production.**
+  The documented install path and the core click-to-pin-to-dashboard flow
+  were reproduced end to end before this release (see
+  [CHANGELOG.md](CHANGELOG.md) for what that audit fixed); Pageflag has no
+  deployed users yet.
 
 ## Changelog
 

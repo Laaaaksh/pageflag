@@ -20,4 +20,13 @@ All notable changes to Pageflag are documented in this file. Format is based on
 - Docker Compose setup (Postgres + the app) and a GHCR-published Docker image
   on tagged releases.
 
+### Fixed
+
+- Pin screenshot thumbnails no longer crop to blank whitespace on tall pages;
+  the dashboard and public review page now show the full capture and link
+  through to the original image.
+- The "see it in Pageflag" link in issues filed via GitHub/Linear no longer
+  404s - added the missing dashboard route, and corrected `.env.example`'s
+  `DASHBOARD_ORIGIN` default to match `docker-compose.yml`.
+
 [Unreleased]: https://github.com/Laaaaksh/pageflag/commits/main

@@ -49,6 +49,20 @@ built dashboard and widget bundles - see `server/src/app.ts`), `dashboard/`
   - add the same `--no-experimental-webstorage` guard there too if a
   jsdom-mode dashboard test ever touches `localStorage`.
 
+## Known build issue
+
+As of 2026-08-30, `docker compose up -d --build` (and any fresh `npm ci` at
+the repo root) fails during the dashboard build: `@vitejs/plugin-react` was
+bumped to `^6.1.0` (needs `vite ^8`) while `vite` is still pinned `^6.0.11`
+(package-lock resolves `6.4.3`) - `vite.config.ts` fails to load with
+`ERR_PACKAGE_PATH_NOT_EXPORTED` on `vite/internal`. This is a dependency-bump
+regression, not caught by CI (see below). A worktree with node_modules
+installed *before* that bump (pre-existing, un-reinstalled) is unaffected -
+`make dev-server` + `make dev-dashboard` (see CONTRIBUTING.md) still works
+end to end; only a fresh install (Docker's `npm ci`, or `npm install` in an
+existing worktree) reproduces the break. Fix by aligning `@vitejs/plugin-react`
+and `vite` majors in `dashboard/package.json`.
+
 ## Release
 
 `ghcr.io/laaaaksh/pageflag` image names must be lowercase; `.github/workflows/release.yml`

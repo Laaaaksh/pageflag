@@ -1,0 +1,13 @@
+{
+  "name": "record-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Records the Pageflag README demo GIF/MP4 by driving the real app with Playwright. Dev-only tooling, not part of the product build.",
+  "scripts": {
+    "record": "node record.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}

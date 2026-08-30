@@ -22,6 +22,13 @@ infrastructure you control.
 
 </div>
 
+## Demo
+
+![Pageflag demo](docs/assets/demo.gif)
+
+Signing up, installing the widget on a demo site, dropping a pin on a real element, and triaging it to resolved in the dashboard - all captured against the app actually running locally.
+Full quality: [docs/assets/demo.mp4](docs/assets/demo.mp4).
+
 ## What it does
 
 - **A tiny `<script>` snippet** (2KB gzipped) adds a floating feedback button to any page - no browser extension, no build step on the target site.
@@ -30,8 +37,6 @@ infrastructure you control.
 - **A dashboard your team actually lives in**: every pin, filterable by status, page URL, or reporter, with the auto-captured screenshot right next to the comment.
 - **One click to file a real issue** in GitHub Issues or Linear, with the screenshot context baked into the issue body.
 - **A per-project domain allow-list** so a copied embed snippet can't be used to capture screenshots of a site you don't control.
-
-<img src="docs/assets/pageflag-demo.gif" alt="Clicking the Pageflag button, pinning a comment on a marketing site, and seeing it appear in the dashboard with its screenshot" width="680">
 
 ## Requirements
 

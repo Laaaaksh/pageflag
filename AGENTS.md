@@ -67,7 +67,7 @@ and `vite` majors in `dashboard/package.json`.
 
 `ghcr.io/laaaaksh/pageflag` image names must be lowercase; `.github/workflows/release.yml`
 lowercases `github.repository` itself before tagging, since the GitHub owner
-(`Laaaaksh`) isn't. See `CONTRIBUTING.md` for the full tag-and-release procedure.
+(`attentionfs`) isn't. See `CONTRIBUTING.md` for the full tag-and-release procedure.
 
 No tag has ever been pushed, so the GHCR image and GitHub release the README
 and SECURITY.md describe don't exist yet - both docs say so explicitly until

@@ -7,11 +7,11 @@ dashboard your team can triage. A self-hosted alternative to BugHerd and
 Marker.io: one `<script>` tag, no per-seat fee, and client screenshots stay on
 infrastructure you control.
 
-[![Star this repo](https://img.shields.io/github/stars/Laaaaksh/pageflag?style=for-the-badge&logo=github&label=star%20this%20repo&color=yellow)](https://github.com/Laaaaksh/pageflag/stargazers)
+[![Star this repo](https://img.shields.io/github/stars/attentionfs/pageflag?style=for-the-badge&logo=github&label=star%20this%20repo&color=yellow)](https://github.com/attentionfs/pageflag/stargazers)
 [![Self-hosted BugHerd alternative](https://img.shields.io/badge/self--hosted-BugHerd%20%2F%20Marker.io%20alternative-6d28d9?style=for-the-badge)](#what-it-does)
 
-[![CI](https://github.com/Laaaaksh/pageflag/actions/workflows/ci.yml/badge.svg)](https://github.com/Laaaaksh/pageflag/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/Laaaaksh/pageflag?color=green&display_name=tag)](https://github.com/Laaaaksh/pageflag/releases)
+[![CI](https://github.com/attentionfs/pageflag/actions/workflows/ci.yml/badge.svg)](https://github.com/attentionfs/pageflag/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/attentionfs/pageflag?color=green&display_name=tag)](https://github.com/attentionfs/pageflag/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-22+-339933?logo=node.js&logoColor=white)](package.json)
 [![Docker](https://img.shields.io/badge/self--host-Docker%20Compose-2496ED?logo=docker&logoColor=white)](#install)
@@ -46,7 +46,7 @@ Full quality: [docs/assets/demo.mp4](docs/assets/demo.mp4).
 ## Install
 
 ```bash
-git clone https://github.com/Laaaaksh/pageflag.git
+git clone https://github.com/attentionfs/pageflag.git
 cd pageflag
 cp .env.example .env   # fill in JWT_SECRET at minimum - see .env.example
 docker compose up -d
@@ -60,7 +60,7 @@ Prefer a pinned image over building from source? Once a tagged release exists,
 it publishes to `ghcr.io/laaaaksh/pageflag` - point `docker-compose.yml`'s
 `app` service at `image: ghcr.io/laaaaksh/pageflag:vX.Y.Z` instead of
 `build: .`. No release has been tagged yet (see
-[releases](https://github.com/Laaaaksh/pageflag/releases)); until then,
+[releases](https://github.com/attentionfs/pageflag/releases)); until then,
 `docker compose up -d` above builds the image from source, which is the fully
 supported path.
 
@@ -134,7 +134,7 @@ Found a security issue? Please report it privately - see [SECURITY.md](SECURITY.
 
 ## Star this repo
 
-If Pageflag saves you a BugHerd or Marker.io bill, [leave a star](https://github.com/Laaaaksh/pageflag/stargazers) - it helps other people find it.
+If Pageflag saves you a BugHerd or Marker.io bill, [leave a star](https://github.com/attentionfs/pageflag/stargazers) - it helps other people find it.
 
 <a href="https://www.star-history.com/?repos=laaaaksh%2Fpageflag&type=date&legend=top-left">
  <picture>

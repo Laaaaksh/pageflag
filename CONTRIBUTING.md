@@ -97,7 +97,7 @@ Releases are cut by pushing a tag; GitHub Actions does the rest
 2. Give the release its own changelog section: insert `## [x.y.z] - YYYY-MM-DD`
    above the (now empty) `## [Unreleased]` heading, following the format of
    the existing sections, and update the compare links at the bottom of the
-   file - add `[x.y.z]: https://github.com/Laaaaksh/pageflag/compare/v<prev>...vx.y.z`
+   file - add `[x.y.z]: https://github.com/attentionfs/pageflag/compare/v<prev>...vx.y.z`
    and repoint `[Unreleased]` at `compare/vx.y.z...HEAD`.
 3. Land those changelog edits on `main` through a pull request, then tag and push:
 

@@ -32,4 +32,4 @@ All notable changes to Pageflag are documented in this file. Format is based on
   404s - added the missing dashboard route, and corrected `.env.example`'s
   `DASHBOARD_ORIGIN` default to match `docker-compose.yml`.
 
-[Unreleased]: https://github.com/Laaaaksh/pageflag/commits/main
+[Unreleased]: https://github.com/attentionfs/pageflag/commits/main
